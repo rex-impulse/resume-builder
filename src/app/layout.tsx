@@ -42,11 +42,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               '@context': 'https://schema.org',
               '@type': 'FAQPage',
               mainEntity: [
-                { '@type': 'Question', name: 'Is this resume builder really free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes! You can create and export resumes as PDF completely free with 3 professional templates.' } },
+                { '@type': 'Question', name: 'Is this resume builder really free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes! You can create and export resumes as PDF completely free with 6 professional templates.' } },
                 { '@type': 'Question', name: 'Is the resume ATS-friendly?', acceptedAnswer: { '@type': 'Answer', text: 'All templates use clean structure and standard headings, making them fully compatible with Applicant Tracking Systems.' } },
                 { '@type': 'Question', name: 'Do I need to sign up?', acceptedAnswer: { '@type': 'Answer', text: 'No account required. Your data stays in your browser. Start building immediately.' } },
                 { '@type': 'Question', name: 'Can I export my resume as PDF?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, export your finished resume as a high-quality PDF ready for job applications. The PDF preserves all formatting and styling from your chosen template.' } },
-                { '@type': 'Question', name: 'How many templates are available?', acceptedAnswer: { '@type': 'Answer', text: 'We offer 3 professional resume templates: Classic, Modern, and Minimal. Each is designed to be clean, readable, and ATS-compatible.' } },
+                { '@type': 'Question', name: 'How many templates are available?', acceptedAnswer: { '@type': 'Answer', text: 'We offer 6 professional resume templates: Clean Modern, Creative, Executive, Minimal, Technical, and Two-Column. Each is designed to be clean, readable, and ATS-compatible.' } },
                 { '@type': 'Question', name: 'Is my data stored on a server?', acceptedAnswer: { '@type': 'Answer', text: 'No. All your resume data stays in your browser using local storage. Nothing is sent to any server, so your personal information remains completely private.' } },
                 { '@type': 'Question', name: 'Can I edit my resume later?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, your resume is saved in your browser automatically. Come back anytime to make changes and re-export.' } },
                 { '@type': 'Question', name: 'What sections can I add to my resume?', acceptedAnswer: { '@type': 'Answer', text: 'You can add work experience, education, skills, projects, certifications, and a summary section. Reorder and customize sections to highlight your strengths.' } },
