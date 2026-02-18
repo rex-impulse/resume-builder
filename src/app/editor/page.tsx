@@ -1,22 +1,33 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { ResumeData, createDefaultResume } from '@/lib/types';
+import { ResumeData, TemplateName, createDefaultResume } from '@/lib/types';
 import { loadResume, saveResume, exportResumeJson, importResumeJson } from '@/lib/storage';
 import ResumeForm from '@/components/resume-form';
-import ResumePreview from '@/components/resume-preview';
-import PdfDownload from '@/components/pdf-download';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
-export default function EditorPage() {
+const ResumePreview = dynamic(() => import('@/components/resume-preview'), { ssr: false });
+const PdfDownload = dynamic(() => import('@/components/pdf-download'), { ssr: false });
+
+function EditorContent() {
   const [data, setData] = useState<ResumeData>(createDefaultResume());
   const [showPreview, setShowPreview] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     setMounted(true);
-    setData(loadResume());
-  }, []);
+    const loaded = loadResume();
+    const templateParam = searchParams.get('template') as TemplateName | null;
+    if (templateParam && ['clean-modern', 'two-column', 'minimal', 'executive', 'creative', 'technical'].includes(templateParam)) {
+      loaded.template = templateParam;
+      saveResume(loaded);
+    }
+    setData(loaded);
+  }, [searchParams]);
 
   const handleChange = useCallback((newData: ResumeData) => {
     setData(newData);
@@ -95,5 +106,17 @@ export default function EditorPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function EditorPage() {
+  return (
+    <Suspense fallback={
+      <div className="h-screen flex items-center justify-center bg-white">
+        <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+      </div>
+    }>
+      <EditorContent />
+    </Suspense>
   );
 }

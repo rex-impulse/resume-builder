@@ -24,7 +24,7 @@ function TemplateCard({ id, name, description, premium, previewColor }: {
     const data = loadResume();
     data.template = id;
     saveResume(data);
-    router.push('/editor');
+    router.push(`/editor?template=${id}`);
   };
 
   return (
