@@ -121,11 +121,15 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="border-t border-gray-200">
         <div className="max-w-5xl mx-auto px-6 py-6 text-center text-xs text-gray-400">
-          <div className="flex justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             <Link href="https://typeburst.impulsestudios.cc" className="hover:text-gray-600">TypeBurst</Link>
             <Link href="https://invoice.impulsestudios.cc" className="hover:text-gray-600">Invoice Generator</Link>
             <Link href="https://qr.impulsestudios.cc" className="hover:text-gray-600">QR Code Maker</Link>
             <Link href="https://tools.impulsestudios.cc" className="hover:text-gray-600">MarkdownPaste</Link>
+            <Link href="https://wordflex.impulsestudios.cc" className="hover:text-gray-600">WordFlex</Link>
+            <Link href="https://astrodestiny.impulsestudios.cc" className="hover:text-gray-600">Astro Destiny</Link>
+            <Link href="https://passwords.impulsestudios.cc" className="hover:text-gray-600">Password Notebook</Link>
+            <Link href="https://letters.impulsestudios.cc" className="hover:text-gray-600">Letter to Future Self</Link>
           </div>
         </div>
       </footer>
